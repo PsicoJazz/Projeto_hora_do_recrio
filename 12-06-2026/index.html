@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hora do Recreio – Bem-vindo</title>
+  <meta name="description" content="Tela de boas-vindas do sistema Hora do Recreio. Selecione o seu perfil para continuar." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+
+      /* Subtle green-gray gradient background */
+      background: linear-gradient(135deg, #e8f5e9 0%, #f0f7f4 40%, #e3f0ec 100%);
+    }
+
+    /* ─── Main Card ────────────────────────────────────────────── */
+    .card {
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+      padding: 52px 48px 48px;
+      max-width: 560px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    /* ─── Top Icon ─────────────────────────────────────────────── */
+    .icon-wrapper {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #1976d2, #42a5f5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(25, 118, 210, 0.35);
+      margin-bottom: 28px;
+      animation: popIn 0.6s 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.6); }
+      to   { opacity: 1; transform: scale(1);   }
+    }
+
+    .icon-wrapper i {
+      font-size: 36px;
+      color: #ffffff;
+    }
+
+    /* ─── Titles ───────────────────────────────────────────────── */
+    .welcome-label {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #1a1a2e;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .app-name {
+      font-size: 34px;
+      font-weight: 900;
+      color: #2e7d32;
+      text-align: center;
+      letter-spacing: 1px;
+      margin-bottom: 30px;
+      line-height: 1.1;
+    }
+
+    /* ─── "Você é:" label ──────────────────────────────────────── */
+    .role-label {
+      font-size: 14px;
+      color: #9e9e9e;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ─── Role Cards ───────────────────────────────────────────── */
+    .roles {
+      display: flex;
+      gap: 18px;
+      width: 100%;
+    }
+
+    .role-card {
+      flex: 1;
+      background: #fafafa;
+      border: 1.5px solid #e8e8e8;
+      border-radius: 18px;
+      padding: 28px 16px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .role-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .role-card:hover {
+      transform: translateY(-5px) scale(1.025);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+    }
+
+    /* Admin card hover tint */
+    .role-card.admin:hover {
+      border-color: #90caf9;
+      background: #f0f7ff;
+    }
+
+    /* Student card hover tint */
+    .role-card.student:hover {
+      border-color: #a5d6a7;
+      background: #f0fff4;
+    }
+
+    /* ─── Role Icon Circles ────────────────────────────────────── */
+    .role-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+    }
+
+    .role-card:hover .role-icon {
+      transform: scale(1.1);
+    }
+
+    .role-icon.admin {
+      background: #dbeafe;
+    }
+
+    .role-icon.admin i {
+      font-size: 26px;
+      color: #1565c0;
+    }
+
+    .role-icon.student {
+      background: #dcfce7;
+    }
+
+    .role-icon.student i {
+      font-size: 26px;
+      color: #1b5e20;
+    }
+
+    /* ─── Role Text ────────────────────────────────────────────── */
+    .role-card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #1a1a2e;
+      text-align: center;
+    }
+
+    .role-card-sub {
+      font-size: 12.5px;
+      color: #9e9e9e;
+      text-align: center;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    /* ─── Responsive ───────────────────────────────────────────── */
+
+    /* Tablet – up to 768px: tighten padding, keep cards side-by-side */
+    @media (max-width: 768px) {
+      .card {
+        padding: 44px 32px 40px;
+        border-radius: 24px;
+      }
+
+      .app-name {
+        font-size: 30px;
+      }
+
+      .roles {
+        gap: 14px;
+      }
+
+      .role-card {
+        padding: 24px 12px 20px;
+      }
+
+      .role-icon {
+        width: 60px;
+        height: 60px;
+      }
+
+      .role-icon.admin i,
+      .role-icon.student i {
+        font-size: 22px;
+      }
+
+      .role-card-title {
+        font-size: 15px;
+      }
+
+      .role-card-sub {
+        font-size: 12px;
+      }
+    }
+
+    /* Phone – up to 520px: stack cards vertically as horizontal pills */
+    @media (max-width: 520px) {
+      body {
+        align-items: flex-start;
+        padding: 20px 12px;
+      }
+
+      .card {
+        padding: 36px 18px 32px;
+        border-radius: 20px;
+        margin: auto;
+      }
+
+      .icon-wrapper {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 22px;
+      }
+
+      .icon-wrapper i {
+        font-size: 30px;
+      }
+
+      .welcome-label {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+      }
+
+      .app-name {
+        font-size: 26px;
+        margin-bottom: 22px;
+      }
+
+      .role-label {
+        font-size: 13px;
+        margin-bottom: 16px;
+      }
+
+      .roles {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .role-card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        padding: 18px 16px;
+        border-radius: 14px;
+      }
+
+      .role-icon {
+        width: 56px;
+        height: 56px;
+        flex-shrink: 0;
+      }
+
+      .role-icon.admin i,
+      .role-icon.student i {
+        font-size: 20px;
+      }
+
+      .role-card-title {
+        font-size: 15px;
+        text-align: left;
+      }
+
+      .role-card-sub {
+        font-size: 12px;
+        text-align: left;
+      }
+
+      /* Subtler hover on touch devices */
+      .role-card:hover {
+        transform: translateY(-2px) scale(1.01);
+      }
+    }
+
+    /* Small phone – up to 360px: reduce further */
+    @media (max-width: 360px) {
+      .card {
+        padding: 28px 14px 26px;
+      }
+
+      .icon-wrapper {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 18px;
+      }
+
+      .icon-wrapper i {
+        font-size: 26px;
+      }
+
+      .app-name {
+        font-size: 22px;
+        letter-spacing: 0.5px;
+      }
+
+      .role-card {
+        padding: 14px 12px;
+        gap: 12px;
+      }
+
+      .role-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .role-icon.admin i,
+      .role-icon.student i {
+        font-size: 18px;
+      }
+
+      .role-card-title {
+        font-size: 14px;
+      }
+
+      .role-card-sub {
+        font-size: 11px;
+      }
+    }
+
+    /* Large screen – 1024px+: give the card more breathing room */
+    @media (min-width: 1024px) {
+      .card {
+        padding: 64px 60px 56px;
+        max-width: 620px;
+      }
+
+      .icon-wrapper {
+        width: 96px;
+        height: 96px;
+      }
+
+      .icon-wrapper i {
+        font-size: 42px;
+      }
+
+      .app-name {
+        font-size: 40px;
+      }
+
+      .role-icon {
+        width: 76px;
+        height: 76px;
+      }
+
+      .role-icon.admin i,
+      .role-icon.student i {
+        font-size: 30px;
+      }
+
+      .role-card-title {
+        font-size: 17px;
+      }
+
+      .role-card-sub {
+        font-size: 13.5px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="card" aria-label="Tela de boas-vindas">
+
+    <!-- Top icon -->
+    <div class="icon-wrapper" aria-hidden="true">
+      <i class="fa-solid fa-utensils"></i>
+    </div>
+
+    <!-- Titles -->
+    <p class="welcome-label">Seja bem-vindo a</p>
+    <h1 class="app-name">hora do recreio</h1>
+
+    <!-- Prompt -->
+    <p class="role-label">Você é:</p>
+
+    <!-- Role selection -->
+    <div class="roles" role="list">
+
+      <!-- Admin -->
+      <a href="#" class="role-card admin" id="btn-admin" role="listitem" aria-label="Entrar como Administrador">
+        <div class="role-icon admin" aria-hidden="true">
+          <i class="fa-solid fa-user-gear"></i>
+        </div>
+        <div>
+          <p class="role-card-title">Administrador</p>
+          <p class="role-card-sub">Coordenação, direção ou<br>responsável pela merenda</p>
+        </div>
+      </a>
+
+      <!-- Student -->
+      <a href="/loginAluno.html" class="role-card student" id="btn-student" role="listitem" aria-label="Entrar como Aluno">
+        <div class="role-icon student" aria-hidden="true">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div>
+          <p class="role-card-title">Aluno</p>
+          <p class="role-card-sub">Estudante da<br>instituição</p>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('btn-admin').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'admin.html';
+    });
+  
+    document.getElementById('btn-student').addEventListener('click', function (e) {
+      e.preventDefault();
+      window.location.href = 'loginAluno.html';
+    });
+  </script>
+
+</body>
+</html>

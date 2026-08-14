@@ -1,0 +1,4 @@
+// data/pratos.json
+[
+    { "id": 1, "nome": "Cuscuz", "descricao": "Cuscuz com ovo", "imagem": "https://..." }
+  ]

@@ -1,0 +1,4 @@
+// data/administradores.json
+[
+    { "id": 1, "nome": "Admin", "email": "admin@escola.com", "senhaHash": "$2b$10$..." }
+  ]

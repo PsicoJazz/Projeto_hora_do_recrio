@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Administrador</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: rgb(232, 255, 241);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .login-box {
+      background-color: #fffdf6;
+      width: 380px;
+      padding: 35px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .login-box h1 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+
+    .login-box h2 {
+      font-size: 20px;
+      font-family: 'Comic Neue', cursive; font-size: 35px;
+      color: rgb(104, 177, 30);
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: rgb(104, 177, 30);
+      box-shadow: 0 0 8px rgba(104, 177, 30, 0.3);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 8px;
+    }
+
+    .btn-entrar {
+      background-color: rgb(104, 177, 30);
+      color: white;
+    }
+
+    .btn-entrar:hover {
+      background-color: rgb(85, 148, 20);
+      transform: translateY(-2px);
+    }
+
+    .btn-voltar {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-voltar:hover {
+      background-color: #cfcfcf;
+    }
+
+    .logo-text {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .logo{
+    width: 100px;
+    margin-bottom: 15px;
+}
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <img src="https://static.wikia.nocookie.net/tier-zoo/images/a/a9/Education-icon.png/revision/latest/thumbnail/width/360/height/360?cb=20200321091517" alt="teste" class="logo">
+    <h1>Login Aluno</h1>
+    <h2>Hora do Recreio</h2>
+    <p class="logo-text">Acesse sua conta para continuar</p>
+
+    <form action="loginAluno.php" method="POST">
+      <div class="input-group">
+        <label for="ra">RA</label>
+        <input type="text" id="ra" name="ra" placeholder="Digite seu RA" required>
+      </div>
+    
+      <div class="input-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+      </div>
+    
+      <button type="submit" class="btn btn-entrar">Entrar</button>
+      <button type="button" class="btn btn-voltar" onclick="window.location.href='index.html'">Voltar</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Painel de Cardápio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <style>
+
+*{
+    font-family: 'Roboto', sans-serif;
+}
+        body{
+            min-height: 100vh;
+            background: linear-gradient(to top, #f1fff8, #ffffff);
+        }
+
+        .conteudo{
+            justify-content: center;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 35px
+        }
+
+        .card{
+            width: 250px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: white;
+        }
+
+        .card img{
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.titulo-area{
+    display: flex;
+    flex-direction: column;
+}
+
+.topo h1{
+    color: rgb(0, 0, 0);
+    font-size: 26px;
+    margin: 0;
+}
+
+.topo p{
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.topo{
+    background-color: #ffffff;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    font-size: 12px;
+
+
+}
+.logo{
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+.btn-admin{
+    margin-left:350px;
+    margin-right:10px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.btn-admin:hover{
+    background-color: #1d4ed8;
+    transition: 0.3s;
+}
+.btn-perfil{
+    background-color: white;
+    color: #111827;
+    border: 1px solid #d1d5db;
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-right:10px;
+    transition: 0.3s;
+    display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.btn-perfil:hover{
+    background-color: #ff9900;
+    color: white;
+}
+    .btn-sair{
+    background-color: white;
+    color: #111827;
+    border: 1px solid #d1d5db;
+    padding: 14px 24px;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-left: 1px;}
+
+    .btn-sair:hover{
+    background-color: #ff9900;
+    color: white;
+    border-color: #ff9900;
+}
+
+.barra-menu{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 18px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    border-radius: 16px;
+}
+
+.barra-menu button{
+    background-color: white;
+    color: #111827;
+    border: 1px solid #d1d5db;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.barra-menu button:hover{
+    background-color: #ff9900;
+    color: white;
+    border-color: #ff9900;
+}
+
+.card{
+    width: 270px;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border: none;
+    padding: 0;
+}
+
+.card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.categoria{
+    background: #2563eb;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 15px;
+
+}
+
+.card h3{
+    font-size: 22px;
+    margin: 15px;
+    color: #111827;
+}
+
+.card p{
+    margin: 0 15px 18px;
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.acoes{
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+}
+
+.acoes button:first-child{
+    flex: 1;
+    background: white;
+    color: black;
+    border: 1px solid #d1d5db;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+
+}
+
+.acoes button:first-child:hover{
+    background: #f3f4f6;
+}
+
+.acoes button:last-child{
+    flex: 1;
+    background: white;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    padding: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.acoes button:last-child:hover{
+    background: #ef4444;
+    color: white;
+}
+
+.gerenciar-pratos{
+    background: white;
+    margin: 25px 30px 0 30px;
+    padding: 22px 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texto-gerenciar h2{
+    margin: 0;
+    font-size: 24px;
+    color: #111827;
+}
+
+.texto-gerenciar p{
+    margin: 6px 0 0 0;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.btn-adicionar{
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-adicionar:hover{
+    background: #1d4ed8;
+}
+
+
+
+    </style>
+
+</head>
+
+<body>
+    
+    <header class="topo">
+        <img src="imagem hrdorcr/Icone prato.png" class="logo">
+
+        <div class="titulo-area">
+            <h1>Painel Administrativo</h1>
+            <p>Maria Silva - Coordenação</p>
+        </div>
+
+        <button class="btn-admin">
+            <span class="material-symbols-outlined">group_add</span>
+            Novo Admin
+        </button>
+
+        <button class="btn-perfil">
+        <span class="material-symbols-outlined">person</span>
+            Perfil
+        </button>
+
+        <button class="btn-sair">
+            <span class="material-symbols-outlined">logout</span>
+            Sair
+        </button>
+    </header>
+
+    <nav class="barra-menu">
+        <button>
+            <span class="material-symbols-outlined">restaurant</span>
+            Pratos
+        </button>
+    
+        <button>        
+            <a href="cardapio.html" class="btn btn-entrar" style="text-decoration: none; display: inline-block; text-align: center;">
+                Ver Cardápio
+            </a>
+        </button>
+    
+        <button>
+            <span class="material-symbols-outlined">bar_chart</span>
+            Estatísticas
+        </button>
+    
+        <button>
+            <a href="alunos.html" class="btn btn-entrar" style="text-decoration: none; display: inline-block; text-align: center;">
+                Alunos
+            </a>
+        </button>
+    
+        <button>
+            <span class="material-symbols-outlined">group</span>
+            Admins
+        </button>
+    </nav>
+
+    <div class="gerenciar-pratos">
+        <div class="texto-gerenciar">
+            <h2>Gerenciar Pratos</h2>
+            <p>Adicione, edite ou remova pratos do cardápio</p>
+        </div>
+    
+        <button class="btn-adicionar">
+            + Adicionar Prato
+        </button>
+    </div>
+        
+    </div>
+
+    <div class="container">
+
+        <div class="header"></div>
+
+        <div class="menu"></div>
+
+        <div class="conteudo">
+
+            <div class="card">
+
+                <div class="categoria">
+                    Prato Principal
+                </div>
+            
+                <img src="imagem hrdorcr/arroz carreteiro.png">
+            
+                <h3>Arroz Carreteiro</h3>
+            
+                <p>Arroz carreteiro tradicional com carne e temperos.</p>
+            
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            
+            </div>
+
+            <div class="card">
+
+                <div class="categoria">
+                    Prato Principal
+                </div>
+            
+                <img src="imagem hrdorcr/galinhada.png">
+            
+                <h3>Galinhada</h3>
+            
+                <p>Galinhada caseira com arroz e frango temperado.</p>
+            
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            
+            </div>
+
+            <div class="card">
+
+                <div class="categoria">
+                    Prato Principal
+                </div>
+            
+                <img src="imagem hrdorcr/polenta com carne moída.png">
+            
+                <h3>Polenta</h3>
+            
+                <p>Polenta cremosa servida com carne moída.</p>
+            
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            
+            </div>
+
+            <div class="card">
+
+                <div class="categoria">
+                    Prato Principal
+                </div>
+            
+                <img src="imagem hrdorcr/Feijoada.jpeg">
+            
+                <h3>Feijoada</h3>
+            
+                <p>Feijoada completa com carnes selecionadas.</p>
+            
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+            
+            </div>
+                
+            </div>
+
+            <div class="card">
+
+                <div class="categoria">
+                    Prato Principal
+                </div>
+            
+                <img src="imagem hrdorcr/Macarrão.jpeg">
+            
+                <h3>Macarrão</h3>
+            
+                <p>Macarrão com molho de tomate.</p>
+            
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            
+            </div>
+
+            <div class="card">
+
+                <div class="categoria">
+                    Prato Principal
+                </div>
+                <img src="imagem hrdorcr/Arroz candy.jpeg">
+                <h3>Arroz doce</h3>
+
+                <p>Arroz doce cremoso preparado com leite e um toque especial de açúcar.</p>
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="categoria">
+                    Prato Principal
+                </div>
+                <img src="imagem hrdorcr/Canjica.jpeg">
+                <h3>Canjica</h3>
+
+                <p>Sobremesa tradicional feita com milho branco e leite condensado.</p>
+                <div class="acoes">
+                <button>Editar</button>
+                <button>Excluir</button>
+            </div>
+            </div>
+
+            <div class="card">
+                <div class="categoria">
+                    Prato Principal
+                </div>
+                <img src="imagem hrdorcr/norato.png">
+                <h3>Strogonoff de Carne</h3>
+            
+                <p>Strogonoff de carne ao molho cremoso acompanhado de arroz.</p>
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="categoria">
+                    Prato Principal
+                </div>
+                <img src="imagem hrdorcr/DOZE.png">
+                <h3>Pão com Carne Moída</h3>
+            
+                <p>Delicioso pão recheado com carne moída preparada na hora.</p>
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="categoria">
+                    Prato Principal
+                </div>
+                <img src="imagem hrdorcr/pão com pernil.png">
+                <h3>X-Pernil</h3>
+                <p>Lanche preparado com pernil macio e pão fresquinho.</p>
+                <div class="acoes">
+                    <button>Editar</button>
+                    <button>Excluir</button>
+                </div>
+            </div>

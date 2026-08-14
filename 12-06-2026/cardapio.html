@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio da Semana!</title>
+
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+    
+        body {
+          background: rgb(232, 255, 241);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+    
+        .login-box {
+          background-color: #fffdf6;
+          width: 700px;
+          padding: 35px 50px; /* Reduzi o padding lateral para os elementos não espremerem */
+          border-radius: 20px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+          text-align: center;
+        }
+    
+        .login-box h1 {
+          font-size: 20px;
+          color: #333;
+          margin-bottom: 8px;
+        }
+    
+        /* Criamos uma estrutura flex para alinhar os blocos lado a lado */
+        .flex-container {
+          display: flex;
+          gap: 20px; /* Espaço de 20px entre os dois campos */
+          margin-bottom: 18px;
+        }
+    
+        .input-group {
+          text-align: left;
+          flex: 1; /* Faz os dois campos terem exatamente o mesmo tamanho */
+        }
+    
+        .input-group label {
+          display: block;
+          margin-bottom: 6px;
+          font-weight: bold;
+          color: #444;
+        }
+    
+        /* Estilizei suas tags select para combinarem com o layout do seu projeto */
+        .input-group select {
+          width: 100%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          font-size: 15px;
+          outline: none;
+          transition: 0.3s;
+          background-color: white;
+        }
+    
+        .input-group select:focus {
+          border-color: rgb(104, 177, 30);
+          box-shadow: 0 0 8px rgba(104, 177, 30, 0.3);
+        }
+    
+        .btn {
+          width: 100%;
+          padding: 12px;
+          border: none;
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: 0.3s;
+          margin-top: 8px;
+        }
+    
+        .btn-entrar {
+          background-color: rgb(104, 177, 30);
+          color: white;
+        }
+    
+        .btn-entrar:hover {
+          background-color: rgb(85, 148, 20);
+          transform: translateY(-2px);
+        }
+    
+        .btn-voltar {
+          background-color: #e0e0e0;
+          color: #333;
+        }
+    
+        .btn-voltar:hover {
+          background-color: #cfcfcf;
+        }
+    
+        .logo-text {
+          font-size: 14px;
+          color: #777;
+          margin-bottom: 20px;
+        }
+      </style>
+
+</head>
+<body>
+
+    <!-- Corrigido o atributo da tag form -->
+    <form>
+        <div class="login-box">
+          <h1>Adicionar novo prato</h1>
+          <p class="logo-text">Preencha os dados para adicionar um novo prato</p>
+      
+          <!-- Div Pai que força o alinhamento lado a lado -->
+          <div class="flex-container">
+            
+            <!-- Campo de Pratos -->
+            <div class="input-group">
+                <label for="prato">Adicionar Prato:</label>
+                <select id="prato" name="prato">
+                  <option value="arroz">Arroz</option>
+                  <option value="feijao">Feijão</option>
+                  <option value="macarrao">Macarrão</option>
+                  <option value="sopa">Sopa</option>
+                  <option value="ervilha">Ervilha</option>
+                </select>
+            </div>
+                
+            <!-- Campo de Dias da Semana -->
+            <div class="input-group">
+                <label for="dias-semana">Dias da Semana:</label>
+                <select id="dias-semana" name="dias_semana">
+                  <option value="segunda">Segunda-Feira</option>
+                  <option value="terca">Terça-Feira</option>
+                  <option value="quarta">Quarta-Feira</option>
+                  <option value="quinta">Quinta-Feira</option>
+                  <option value="sexta">Sexta-Feira</option>
+                </select>
+            </div>
+
+          </div>
+      
+          <div>
+            <button type="submit" class="btn btn-entrar">Adicionar prato</button>
+            <button type="button" class="btn btn-voltar">Cancelar</button>
+            
+            <a href="homeAdm.html" class="btn btn-voltar" style="text-decoration: none; display: inline-block; text-align: center;">
+              Voltar página
+          </a>
+          </div>
+        </div>
+    </form>
+</body>
+</html>

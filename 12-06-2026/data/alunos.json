@@ -1,0 +1,4 @@
+// data/alunos.json
+[
+    { "id": 1, "ra": "12345", "nome": "João Silva", "senhaHash": "$2b$10$..." }
+  ]

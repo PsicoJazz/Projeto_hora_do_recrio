@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar novo prato</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: rgb(232, 255, 241);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .login-box {
+      background-color: #fffdf6;
+      width: 380px;
+      padding: 50px 50px;
+      border-radius: 50px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+
+    .login-box h1 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 8px;
+      padding: 30px;
+    }
+
+    .login-box h2 {
+      font-size: 20px;
+      font-family: 'Comic Neue', cursive; font-size: 35px;
+      color: rgb(104, 177, 30);
+      margin-bottom: 25px;
+    }
+
+    .input-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: rgb(104, 177, 30);
+      box-shadow: 0 0 8px rgba(104, 177, 30, 0.3);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 8px;
+    }
+
+    .btn-entrar {
+      background-color: rgb(104, 177, 30);
+      color: white;
+    }
+
+    .btn-entrar:hover {
+      background-color: rgb(85, 148, 20);
+      transform: translateY(-2px);
+    }
+
+    .btn-voltar {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+
+    .btn-voltar:hover {
+      background-color: #cfcfcf;
+    }
+
+    .logo-text {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <form a>
+  <div class="login-box">
+    <h1>Adicionar novo prato</h1>
+    
+    <p class="logo-text">Preencha os dados para adicionar um novo prato</p>
+
+   
+      <div class="input-group">
+        <label for="name">Nome do prato</label>
+        <input type="name" id="name" placeholder="Ex: Cuscuz" required>
+      </div>
+
+      <div class="input-group">
+        <label for="name">Descrição</label>
+        <input type="text" id="email" placeholder="Descreva o prato" required>
+      </div>
+<br>
+      <div class="input-group">
+        <label for="cargo">Seu cargo:</label>
+<select id="coordenação" name="coordenação">
+  <option value="cordena">Entrada</option>
+  <option value="cordena">Prato Principal</option>
+  <option value="cordena">Acompanhamento</option>
+  <option value="cordena">Sobremesa</option>
+  <option value="cordena">Bebida</option>
+</select>
+
+<br><br>
+
+<div class="input-group">
+  <label for="imagem">URL da imagem</label>
+  <input type="imagem" id="imagem" placeholder="https://..." required>
+</div>
+
+    <div>
+      <button type="submit" class="btn btn-entrar">Adicionar prato</button>
+      <button type="button" class="btn btn-voltar"> Cancelar</button>
+    </div>
+  </form>
+
+ 
+
+</body>
+</html>
